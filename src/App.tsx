@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {RatingValueType, UncontrolledRating} from "./UncontrolledRating/UncontrolledRating";
+import {UncontrolledAccordion} from "./UncontrolledAccordion/UncontrolledAccordion";
+import {Rating} from "./Rating/Rating";
+import {Accordion} from "./Accordion/Accordion";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+
+    return (
+        <div className="App">
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<UncontrolledRating/>*/}
+            {/*<UncontrolledAccordion />*/}
+            <Accordion titleValue={'Controlled'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+        </div>
+    );
 }
 
 export default App;
