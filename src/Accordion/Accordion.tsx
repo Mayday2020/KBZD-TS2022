@@ -5,7 +5,7 @@ type AccordionTitlePropsType = {
     onClick: (collapsed: boolean)=> void
     collapsed: boolean
 }
-type AccordionPropsType = {
+export type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
     onClick: (collapsed: boolean)=> void
@@ -14,7 +14,7 @@ export const Accordion = (props: AccordionPropsType) => {
     return (
         <div>
             <AccordionTitle title={props.titleValue} onClick={props.onClick} collapsed={props.collapsed}/>
-            {props.collapsed && <AccordionBody />}
+            {!props.collapsed && <AccordionBody />}
         </div>
     )
 }
