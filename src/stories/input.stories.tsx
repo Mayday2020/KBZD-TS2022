@@ -1,5 +1,6 @@
-import React, {useRef, useState} from 'react';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
+import React, {ChangeEvent, useRef, useState} from 'react';
+import {ComponentMeta} from '@storybook/react';
+import {action} from "@storybook/addon-actions";
 
 type InputTypeProps = {
     value?: string
@@ -35,8 +36,6 @@ export const UncInputTrack = () => {
 export const UncInputTrackBtn = () => {
     const [value, setValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null);
-
-
     return (
         <>
             <input ref={inputRef}/> <button onClick={(e) => {
@@ -46,6 +45,49 @@ export const UncInputTrackBtn = () => {
         </>
     )
 }
+
 export const ControlledInputFixed = () => <input value={'fixed value'}/>
+
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState('')
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setParentValue(e.currentTarget.value)
+    }
+    return <input value={parentValue} onChange={onChange} />
+}
+
+export const ControlledCheckBox = () => {
+    const [parentValue, setParentValue] = useState(false)
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setParentValue(e.currentTarget.checked)
+    }
+
+    return <input type={'checkbox'} checked={parentValue} onChange={onChange}/>
+}
+
+export const ControlledSelect = () => {
+    const [parentValue, setParentValue] = useState<string | undefined>('3')
+    const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setParentValue(e.currentTarget.value)
+    }
+    return (
+        <select onChange={onChange} value={parentValue}>
+            <option value="0">none</option>
+            <option value="1">Avengers</option>
+            <option value="2">Avengers - Age of Ultron</option>
+            <option value="3">Avengers - Infinity war</option>
+            <option value="4">Avengers - Final</option>
+        </select>
+    )
+}
+
+
+
+
+
+
+
+
+
 
 
