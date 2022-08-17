@@ -6,7 +6,7 @@ import {Rating} from "./Rating/Rating";
 import {Accordion} from "./Accordion/Accordion";
 import {UncontrolledOnOff} from "./UncontrolledOnOff/UncontrolledOnOff";
 import {OnOff} from "./OnOff/OnOff";
-import CustomSelectComponent, {itemType} from "./CustomSelectComponent/CustomSelectComponent";
+import CustomSelectComponent, {ItemType} from "./CustomSelectComponent/CustomSelectComponent";
 
 function App() {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -27,7 +27,7 @@ function App() {
     const openSelect = () => {
         setCollapsed(!collapsed)
     }
-    const changeTitle = (item: itemType) => {
+    const changeTitle = (item: ItemType) => {
         setTitleValue(item.value)
         setCollapsed(!collapsed)
     }

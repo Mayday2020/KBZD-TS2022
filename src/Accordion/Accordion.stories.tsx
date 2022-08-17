@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Accordion, AccordionPropsType} from './Accordion'
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {action} from "@storybook/addon-actions";
+import {ItemType} from "../CustomSelectComponent/CustomSelectComponent";
 
 export default {
     title: 'Example/Accordion',
@@ -11,7 +12,7 @@ export default {
 const onClickCallBack = action('Some action to click accordion')
 const callBack = action('some item was clicked ')
 
-const items = [
+const items: ItemType[] = [
     {id: 1, value: 'Thor', power: 'POWER OF GOD'},
     {id: 2, value: 'Iron man', power: 'GENIUS'},
     {id: 3, value: 'Hulk', power: 'PUNISH'},

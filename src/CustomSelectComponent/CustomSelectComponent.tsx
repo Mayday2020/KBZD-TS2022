@@ -1,6 +1,6 @@
 import React from 'react'
 
-export type itemType = {
+export type ItemType = {
     id: number
     value: string
     power: string
@@ -11,15 +11,15 @@ type SelectTitlePropsType = {
     collapsed: boolean
 }
 export type SelectBodyPropsType = {
-    onClick: (item: itemType) => void
-    items: itemType[]
+    onClick: (item: ItemType) => void
+    items: ItemType[]
 }
 export type SelectPropsType = {
     titleValue: string
     collapsed: boolean
     onClickTitle: (collapsed: boolean)=> void
-    items:  itemType[]
-    onClick: (item: itemType) => void
+    items:  ItemType[]
+    onClick: (item: ItemType) => void
 }
 
 const SelectTitle = (props: SelectTitlePropsType) => {
@@ -35,8 +35,6 @@ const SelectBody = (props: SelectBodyPropsType) => {
     )
 }
 const CustomSelectComponent = (props: SelectPropsType) => {
-
-
     return (
         <div>
             <SelectTitle title={props.titleValue} onClick={props.onClickTitle} collapsed={props.collapsed}/>
