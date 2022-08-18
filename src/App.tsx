@@ -10,9 +10,27 @@ import CustomSelectComponent, {ItemType} from "./CustomSelectComponent/CustomSel
 
 function App() {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
-    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
     let [on, setOn] = useState<boolean>(true)
 
+    // Accordion settings
+    let [accTitleValue, setAccTitleValue] = useState<string>('menu')
+    let [accCollapsed, setAccCollapsed] = useState(true)
+    const accItems = [
+        {id: 1, value: 'Thor', power: 'POWER OF GOD'},
+        {id: 2, value: 'Iron man', power: 'GENIUS'},
+        {id: 3, value: 'Hulk', power: 'PUNISH'},
+        {id: 4, value: 'Captain America', power: 'MORALITY'},
+        {id: 5, value: 'Black widow', power: 'ESPIONAGE'},
+        {id: 6, value: 'Hawkeye', power: 'SARCASM'}
+    ]
+    const openAcc = () => {
+        setAccCollapsed(!accCollapsed)
+    }
+    const changeAccTitle = (item: ItemType) => {
+        setAccTitleValue(item.value)
+        setAccCollapsed(!accCollapsed)
+    }
+    //
     // Select settings
     let [titleValue, setTitleValue] = useState<string>('menu')
     let [collapsed, setCollapsed] = useState(true)
@@ -36,7 +54,12 @@ function App() {
         <div className="App">
             <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<UncontrolledRating/>*/}
-            {/*<Accordion titleValue={'Controlled'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>*/}
+            <Accordion titleValue={accTitleValue}
+                       collapsed={accCollapsed}
+                       onClick={changeAccTitle}
+                       items={accItems}
+                       onClickTitle={openAcc}
+            />
             {/*<UncontrolledAccordion />*/}
             <OnOff onValue={on} onClick={setOn}/>
             {/*<UncontrolledOnOff />*/}
