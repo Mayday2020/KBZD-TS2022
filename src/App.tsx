@@ -60,7 +60,7 @@ function App() {
                        items={accItems}
                        onClickTitle={openAcc}
             />
-            {/*<UncontrolledAccordion />*/}
+            <UncontrolledAccordion />
             <OnOff onValue={on} onClick={setOn}/>
             {/*<UncontrolledOnOff />*/}
             <CustomSelectComponent collapsed={collapsed}
