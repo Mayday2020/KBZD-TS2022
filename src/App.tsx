@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import {RatingValueType, UncontrolledRating} from "./UncontrolledRating/UncontrolledRating";
+import {RatingValueType} from "./UncontrolledRating/UncontrolledRating";
 import {UncontrolledAccordion} from "./UncontrolledAccordion/UncontrolledAccordion";
 import {Rating} from "./Rating/Rating";
 import {Accordion} from "./Accordion/Accordion";
-import {UncontrolledOnOff} from "./UncontrolledOnOff/UncontrolledOnOff";
 import {OnOff} from "./OnOff/OnOff";
 import CustomSelectComponent, {ItemType} from "./CustomSelectComponent/CustomSelectComponent";
+import {Example1} from "./stories/ReactMemo";
 
 function App() {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -52,6 +52,7 @@ function App() {
     //
     return (
         <div className="App">
+            <Example1 />
             <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<UncontrolledRating/>*/}
             <Accordion titleValue={accTitleValue}

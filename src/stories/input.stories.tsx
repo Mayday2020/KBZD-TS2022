@@ -1,6 +1,5 @@
 import React, {ChangeEvent, useRef, useState} from 'react';
 import {ComponentMeta} from '@storybook/react';
-import {action} from "@storybook/addon-actions";
 
 type InputTypeProps = {
     value?: string
