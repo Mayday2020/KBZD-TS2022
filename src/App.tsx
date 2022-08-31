@@ -7,6 +7,8 @@ import {Accordion} from "./Accordion/Accordion";
 import {OnOff} from "./OnOff/OnOff";
 import CustomSelectComponent, {ItemType} from "./CustomSelectComponent/CustomSelectComponent";
 import {Example1} from "./stories/ReactMemo";
+import {ExampleUseMemo1} from "./useMemo/useMemo";
+import {HelpsToReactMemo} from "./useMemo/useMemo2";
 
 function App() {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -52,7 +54,11 @@ function App() {
     //
     return (
         <div className="App">
-            <Example1 />
+            {/*<Example1 />*/}
+            <ExampleUseMemo1 />
+            <hr/>
+            <HelpsToReactMemo />
+            <hr/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<UncontrolledRating/>*/}
             <Accordion titleValue={accTitleValue}

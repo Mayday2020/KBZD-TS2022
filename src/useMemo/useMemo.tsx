@@ -1,15 +1,28 @@
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 
 
 export const ExampleUseMemo1 = () => {
-    const [a, setA] = useState<number>(0)
-    const [b, setB] = useState<number>(0)
+    const [a, setA] = useState<number>(3)
+    const [b, setB] = useState<number>(3)
 
     let resultA = 1
     let resultB = 1
 
-    for( let i = 1; i <= a; i++) {
-        resultA *= i
+    resultA = useMemo(() => {
+        let tempResultA = 1
+        for( let i = 1; i <= a; i++) {
+            let fake = 0;
+            while (fake < 10000000) {
+                fake++;
+                const fakeValue = Math.random()
+            }
+            tempResultA *= i
+        }
+        return tempResultA
+    }, [a])
+
+    for( let i = 1; i <= b; i++) {
+        resultB *= i
     }
     return (
         <>
@@ -17,10 +30,10 @@ export const ExampleUseMemo1 = () => {
             <input type="text" value={b} onChange={ (e) => setB(+e.currentTarget.value)}/>
             <hr/>
             <div>
-                 Result for a : {}
+                 Result for a : {resultA}
             </div>
             <div>
-                 Result for b : {}
+                 Result for b : {resultB}
             </div>
         </>
     )
